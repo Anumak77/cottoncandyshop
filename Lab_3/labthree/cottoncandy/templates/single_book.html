@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+  <!-- the page title goes here --> 
+{% endblock %}
+
+{% block content %}
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h4>{{ book.title }}</h4>
+              <h5 class="card-title"> by {{ book.author}} set in {{ book.year }}</h5>
+              <p class="card-text">{{ book.synopsis }}</p>
+              <p>category = {{ book.category }}</p>
+
+              
+              {% for b in borrowed %}
+                    <p>Borrowed by: {{ b.customer.name }}</p>
+              {% endfor %}
+
+            </div>
+          </div>
+
+        
+{% endblock %}
