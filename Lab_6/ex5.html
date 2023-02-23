@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <script>
+        function create(type, content) {
+            let item = document.createElement(type);
+            item.innerHTML = content;
+            document.body.appendChild(item);
+        }
+        
+        fetch("https://swapi.dev/api/planets/1")
+            .then(response => response.json())
+            .then(data => {
+                let aa = Object.keys(data);
+                let v = Object.values(data);
+                for (i in aa) {
+                    if (aa[i] == "residents") break;
+                    let output = `${aa[i]}: ${v[i]}`
+                    create("p", output);
+                }
+            });
+    </script>
+</body>
+</html>

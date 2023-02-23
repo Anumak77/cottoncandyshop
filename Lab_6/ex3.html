@@ -1,0 +1,42 @@
+<html>
+<body>
+
+
+
+<form>
+	<label> enter ur name </label>
+	<input type="text" name="name" id="name" >
+	<button type="button" name="name" onclick="printname()">click here</button>
+	<label id="printHello"></label>
+</form>
+
+
+
+
+
+
+<script>
+
+
+
+function printname(){
+
+	if (document.getElementById("name").value == null || document.getElementById("name").value == "" ){
+
+		alert("no name given");
+
+	}
+
+	else {
+
+		var giveName = document.getElementById("name").value;
+		document.getElementById("printHello").innerHTML = "Hello " + giveName;
+	}
+
+  
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+    
+
+        <img id="pic" width="30%" src="" style="height: 500px;width: 500px">
+    </div>
+
+    <button id="myButton">click for another pic</button>
+    <script>
+        const myButton = document.getElementById("myButton");
+        myButton.addEventListener("click", function() {
+            fetch("https://dog.ceo/api/breeds/image/random")
+            .then(response => response.json())
+            .then(data=>{ 
+            const dogurl = data.message;
+            const pic = document.getElementById("pic");
+            pic.src=dogurl
+        })
+        });
+</script>
+</body>
+

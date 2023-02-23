@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<form id="form1">
+    <label for="form-one">Enter a number: </label>
+    <input type="text" name="form-one" id="one">
+    <label for="form-two">Enter a number: </label>
+    <input type="text" name="form-two" id="two">
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    let body = document.getElementsByTagName('body')[0];
+    
+    function formValidator(event) {
+        event.preventDefault();
+        let one = document.getElementById('one').value;
+        let two = document.getElementById('two').value;
+        if(one == '' || two == '') {
+            alert("Input cannot be empty");
+        }
+        else if(isNaN(one) || isNaN(two)) {
+            alert("Input must be a number");
+        }
+        else {
+            let p = document.createElement('p');
+            p.innerHTML = parseInt(one) + parseInt(two);
+            body.appendChild(p);
+        }
+    }
+    let f1 = document.getElementById('form1');
+    f1.addEventListener('submit', formValidator);
+
+</script>
+</body>
+</html>

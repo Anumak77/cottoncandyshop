@@ -16,3 +16,4 @@ class BorrowingSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = Borrow
 		fields = ['id','customer','book','due_date','is_returned']
+  
