@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="/customer" method="POST">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type='hidden' name='pizza' value={{ pizzaId }} />
+        <button type="submit">Confirm</button>
+    </form>
+{% endblock %}

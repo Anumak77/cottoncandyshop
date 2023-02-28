@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+<h2>Order Completed</h2>
+    <div class="card">
+
+        <div class="card-body">
+            <div class="orderCompleted">
+
+
+                <h3> Your Order Number: {{Pizza.id}}</h3>
+
+
+                
+                <ul>
+                    <li>Size: {{customer.size}}</li>
+                    <li>Crust type: {{pizza.crust}}</li>
+                    <li>Sauce: {{pizza.sauce}}</li>
+                    <li>Cheese: {{pizza.cheese}}</li>
+                    <li>Toppings:</li>
+                    <ul>
+                        {% if Pizza.pepperoni %}<li>Pepperoni </li>{% endif %} 
+                        {% if Pizza.chicken %}<li>Ham </li>{% endif %} 
+                        {% if Pizza.ham %}<li>Ham </li>{% endif %} 
+                        {% if Pizza.pineapple %}<li>Pineapple </li>{% endif %} 
+                        {% if Pizza.peppers %}<li>Peppers </li>{% endif %} 
+                        {% if Pizza.mushrooms %}<li>Mushrooms </li>{% endif %} 
+                        {% if Pizza.onions %}<li>Onions </li>{% endif %}  
+
+                    </ul>
+
+                </ul>
+            </div>
+            <a href="/" class="btn btn-primary">go back home</a>
+        </div>
+        
+{% endblock %}
