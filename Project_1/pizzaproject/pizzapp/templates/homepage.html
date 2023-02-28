@@ -1,18 +1,24 @@
 
 {% extends 'base.html' %}
 {% block content %}
-    <p>hellloo</p>
+
  
+{% load static %}
+    <img src="{% static 'images/pizza.png' %}" style="align-items:right; float: right; width: 300px">
     
     <form action="/pizza" method="POST">
         {% csrf_token %}
         <ul class="list-group list-group-flush">
             <li class="list-group-item"> {{ form.as_ul }}</li>
         </ul>
-        
+
+
+        <div class="button">
         <button type="submit">Order</button>
+        </div>
     </form>
+
+    
 
 
 {% endblock %}
-

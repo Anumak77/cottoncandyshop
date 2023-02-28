@@ -2,9 +2,29 @@
 	<head>
 		{% block title %}
 
-        <h2>Pizza Place</h2>
+
+
+        <div class="topnav">
+            <div class="logo-image">
+                {%load static%}
+                <img src="{% static 'images/pizzagif.gif' %}" class="img-fluid" width="100">
+            </div>
+            <div class="logo-image1">
+                {%load static%}
+                <img src="{% static 'images/pizzagif.gif' %}" class="img-fluid1" width="100">
+            </div>
+
+            <a href='/pizza'>Pizza Place</a>
+          </div>
+
+
+        <h2>Welcome, you can customise your pizza here</h2>
 			
 		{% endblock %}
+   
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" /> 
+
+
 	</head>
 	<body>
 		{% block content %}

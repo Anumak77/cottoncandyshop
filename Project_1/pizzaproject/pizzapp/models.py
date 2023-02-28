@@ -31,10 +31,10 @@ class cheese(models.Model):
 
 class pizza(models.Model):
     id = models.AutoField(primary_key=True)
-    size = models.ForeignKey(size, on_delete=models.CASCADE)
-    crust = models.ForeignKey(crust, on_delete=models.CASCADE)
-    sauce = models.ForeignKey(sauce, on_delete=models.CASCADE)
-    cheese = models.ForeignKey(cheese, on_delete=models.CASCADE)
+    size = models.ForeignKey(size, on_delete=models.CASCADE, defualt="medium")
+    crust = models.ForeignKey(crust, on_delete=models.CASCADE, defualt="thin")
+    sauce = models.ForeignKey(sauce, on_delete=models.CASCADE, default="tomato")
+    cheese = models.ForeignKey(cheese, on_delete=models.CASCADE, dafault="low fat")
     
 
     pepperoni = models.BooleanField()

@@ -28,7 +28,7 @@ def customer(request, pizzaId=0):
         if form.is_valid():
             customer = form.save(commit=False) 
             form.save()
-            return redirect('created', pizzaId = customer.id) 
+            return redirect('created', pizzaId = piza.id) 
         else:
             return render(request, 'customer.html', {'form': form, 'pizzaId': pizza.id})
     else:
@@ -37,5 +37,5 @@ def customer(request, pizzaId=0):
 
 def created(request, pizzaId):
     piza = get_object_or_404(pizza, id=pizzaId)
-    return render(request, 'created.html', {'pizza': pizza})
+    return render(request, 'created.html', {'pizza': piza})
 

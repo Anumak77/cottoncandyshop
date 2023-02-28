@@ -1,9 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
+
+{%load static%}
+
+<img src="{% static 'images/pizza.png' %}" style="align-items:right; float: right; width: 300px">
+
     <form action="/customer" method="POST">
         {% csrf_token %}
         {{ form.as_ul }}
+
+        
+        <div class ="button">
         <input type='hidden' name='pizza' value={{ pizzaId }} />
+
+
+
         <button type="submit">Confirm</button>
+        </div>
     </form>
 {% endblock %}
