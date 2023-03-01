@@ -31,10 +31,10 @@ class cheese(models.Model):
 
 class pizza(models.Model):
     id = models.AutoField(primary_key=True)
-    size = models.ForeignKey(size, on_delete=models.CASCADE, defualt="medium")
-    crust = models.ForeignKey(crust, on_delete=models.CASCADE, defualt="thin")
+    size = models.ForeignKey(size, on_delete=models.CASCADE, default="medium")
+    crust = models.ForeignKey(crust, on_delete=models.CASCADE, default="thin")
     sauce = models.ForeignKey(sauce, on_delete=models.CASCADE, default="tomato")
-    cheese = models.ForeignKey(cheese, on_delete=models.CASCADE, dafault="low fat")
+    cheese = models.ForeignKey(cheese, on_delete=models.CASCADE, default="low fat")
     
 
     pepperoni = models.BooleanField()
@@ -49,7 +49,7 @@ class pizza(models.Model):
 class customer(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
-    address = models.TextField(max_length=30)
+    address = models.TextField(max_length=50)
     card_no = models.CharField(max_length=20)
     expiry_month = models.IntegerField()
     expiry_year = models.IntegerField()

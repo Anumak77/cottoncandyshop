@@ -27,7 +27,7 @@ class customerform(forms.ModelForm):
         if len(card_no) < 16 or not (card_no.isnumeric()):
             raise forms.ValidationError("Invalid Card Number")
 
-        elif expiry_month < 1 or expiry_month > 12:
+        elif expiry_month < 1 or expiry_month > 12 or expiry_month < datetime.now().month:
             raise forms.ValidationError("Invalid expiry date")
         
         elif  expiry_year < datetime.now().year or (expiry_year == datetime.now().year and expiry_month < datetime.now().month):
