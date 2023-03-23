@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+ 
+{% endblock %}
+
+{% block content %}
+<div class="card text-center">
+    <div class="card-body">
+      <h3 class="card-title"> {{customer.name}}</h3>
+      {% for c in current %}
+      <h5 class="card-title"> Currently borrows</h5>
+      <h6 class="card-title"> {{c.book.title}}, {{c.book.year}}</h6>
+      <p class="card-text">Genre: {{c.book.category }}</p>
+      {% endfor %}
+      {% for p in previous %}
+      <p>Previous books: {{ p.book.title }}, {{ p.book.year}}</p>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
