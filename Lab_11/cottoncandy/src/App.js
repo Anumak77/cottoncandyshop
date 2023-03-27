@@ -4,7 +4,9 @@ import HeadingComponent from './components/heading';
 import ButtonComponent from './components/button';
 import SomeComponent from './components/counter';
 import CatFacts from './components/catfacts';
-import {useState} from "react";
+import BookFacts from './components/booklist';
+import Bookid from './components/booksid';
+
 
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
         </br>
         <SomeComponent/>
         <CatFacts/>
+        <BookFacts/>
+        <Bookid id="1"/>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
