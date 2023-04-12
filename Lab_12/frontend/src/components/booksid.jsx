@@ -37,8 +37,3 @@ function Bookid({id}){
 
 
 export default Bookid;
-
-
-
-
-

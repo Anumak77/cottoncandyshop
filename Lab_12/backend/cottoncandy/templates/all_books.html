@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+  <!-- the page title goes here --> 
+{% endblock %}
+
+{% block content %}
+        {% for b in books %}
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{ b.title }} by {{ b.author}} set in {{ b.year }}</h5>
+              <p class="card-text">{{ b.synopsis }}</p>
+              <p>category = {{ b.category }}</p>
+              <a href="{% url 'single_book' b.id %}" class="btn btn-primary">More info</a>
+            </div>
+          </div>
+          <br>
+
+        {% endfor %}
+{% endblock %}
