@@ -20,7 +20,7 @@ function ModuleId({id}){
     return (
       <ul>
         <li>
-          Course Code: {module.code}
+
           <br></br>
           Course Name: {module.full_name}
           <br></br>

@@ -55,11 +55,11 @@ function Moduleadd() {
     <form onSubmit={handleSubmit}>
       <div>
         <h3>add a module</h3>
-        <label htmlFor="Code">Course Code:</label>
+        <label htmlFor="Code">Module Code:</label>
         <input id="code" value={code} onChange={handleCodeChange} />
       </div>
       <div>
-        <label htmlFor="full_name">Course Name:</label>
+        <label htmlFor="full_name">Module Name:</label>
         <input id="full_name" value={full_name} onChange={handleNameChange} />
       </div>
       <div>

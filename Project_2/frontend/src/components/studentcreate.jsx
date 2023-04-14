@@ -1,12 +1,4 @@
-import { useState } from "react";
-
-
-// "student_id": "36359521",
-// "first_name": "Deana",
-// "last_name": "Losinski",
-// "cohort": "http://127.0.0.1:8000/api/cohort/COMBUS1/",
-// "email": "deana.losinski@dcu.ie"
-
+import { useState, useEffect } from "react";
 
 function Studentadd() {
   const [id, setid] = useState("");
@@ -14,6 +6,20 @@ function Studentadd() {
   const [last_name, setlast_name] = useState("");
   const [cohort, setcohort] = useState("");
   const [email, setemail] = useState("");
+  const [selectedCohort, setSelectedCohort] = useState("");
+  const [cohorts, setCohorts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/cohort/")
+      .then((response) => response.json())
+      .then((data) => {
+        setCohorts(data);
+        if (data.length > 0) {
+          setSelectedCohort(data[0].id);
+        }
+      })
+      .catch((er) => console.log(er)); 
+  }, []);
 
   const handleIdChange = (event) => {
     setid(event.target.value);
@@ -28,7 +34,7 @@ function Studentadd() {
   };
   
   const handleCohortChange = (event) => {
-    setcohort(event.target.value);
+    setSelectedCohort(event.target.value);
   };
 
   const handleEmailChange = (event) => {
@@ -53,9 +59,9 @@ function Studentadd() {
       },
       body: JSON.stringify(student),
     })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((er) => console.log(er));
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(er => console.log(er));
 
     setid("");
     setfirst_name("");
@@ -66,11 +72,8 @@ function Studentadd() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
         <h3>add a student</h3>
-        <label htmlFor="id">Student ID:</label>
-        <input id="id" value={id} onChange={handleIdChange} />
-      </div>
+
       <div>
         <label htmlFor="first_name">First Name:</label>
         <input id="first_name" value={first_name} onChange={handleFNameChange} />
@@ -79,10 +82,17 @@ function Studentadd() {
         <label htmlFor="last_name">Last Name:</label>
         <input id="last_name" value={last_name} onChange={handleLNameChange} />
       </div>
+
       <div>
-        <label htmlFor="cohort">Name of the current course they are in, including their year:</label>
-        <input id="cohort" value={cohort} onChange={handleCohortChange} />
-      </div>
+        <label htmlFor="cohort">Cohort:</label>
+        <select id="cohort" value={selectedCohort} onChange={handleCohortChange}>
+        {cohorts.map((cohort) => (
+        <option key={cohort.id} value={cohort.id}>
+        {cohort.id}
+        </option>
+        ))}
+        </select>
+        </div>
 
       <button type="submit">Add Module</button>
     </form>

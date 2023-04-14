@@ -54,43 +54,34 @@
 
 // export default ModulecohortId;
 
-
-
 import { useState, useEffect } from "react";
+import React from 'react';
 
-function ModulecohortId({id}){
+function ModulecohortId({ id, onBack }) {
   const [degree, setdegree] = useState({});
   const [course, setcourse] = useState([]);
+  const [backClicked, setBackClicked] = useState(false);
 
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/cohort/${id}/`)
-
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         setdegree(data);
-        return fetch(`http://127.0.0.1:8000/api/module/?delivered_to=${id}`)
+        return fetch(`http://127.0.0.1:8000/api/module/?delivered_to=${id}`);
       })
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         if (Array.isArray(data)) {
           setcourse(data);
-        } 
+        }
       })
-      .catch(er => console.log(er))
+      .catch((er) => console.log(er));
   }, [id]);
-
-
-  // "code": "CA208",
-  // "full_name": "Logic",
-  // "delivered_to": [
-  //     "http://127.0.0.1:8000/api/cohort/COMSCI2/"
-  // ],
-  // "ca_split": 50
 
   const displaycourse = () => {
     return (
       <ul>
-        {course.map(course => (
+        {course.map((course) => (
           <li key={course.id}>
             <ul>
               Course Code: {course.code}
@@ -119,6 +110,14 @@ function ModulecohortId({id}){
     );
   };
 
+  const handleBackClick = () => {
+    setBackClicked(true);
+    onBack();
+  };
+
+  if (backClicked) {
+    return null;
+  }
 
   return (
     <div>
@@ -126,6 +125,7 @@ function ModulecohortId({id}){
       {displayDegree()}
       <h3>Cohort for {id}</h3>
       {displaycourse()}
+      <button onClick={handleBackClick}>Back</button>
     </div>
   );
 }
