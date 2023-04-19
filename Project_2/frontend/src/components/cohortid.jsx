@@ -9,7 +9,7 @@ const ButtonContainer = styled.div`
 `;
 
 const StyledButton = styled.button`
-  background-color: #4caf50;
+  background-color: #4c6daf;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -19,7 +19,7 @@ const StyledButton = styled.button`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: #3e8e41;
+    background-color: #3e5b8e;
   }
 `;
 
@@ -73,8 +73,8 @@ function CohortId({id}){
 
   const displaystudent = () => {
     return (
-      <ul>
-        {student.map(student => (
+      <ul id="main-list">
+        {student.map((student) => (
           <li key={student.id}>
             <ul>
               Student ID: {student.student_id}
@@ -87,27 +87,30 @@ function CohortId({id}){
               <br></br>
               <br></br>
               <ButtonContainer>
-                  <br></br>
+                <br></br>
   
-                  <StyledButton
-                    onClick={() => handleButtonClick("grades", student.student_id)}
-                  >
-                    Display
-                  </StyledButton>
-                </ButtonContainer>
+                <StyledButton
+                  onClick={() => handleButtonClick("grades", student.student_id)}
+                >
+                  All modules
+                </StyledButton>
+              </ButtonContainer>
             </ul>
           </li>
         ))}
       </ul>
     );
   };
+  
 
   const displaycohort = () => {
     return (
       <ul>
-        <li>ID: {cohort.id}</li>
-        <li>Year: {cohort.year}</li>
-        <li>Name: {cohort.name}</li>
+        ID: {cohort.id}
+        <br></br>
+        Year: {cohort.year}
+        <br></br>
+        Name: {cohort.name}
         <br></br>
         <br></br>
 

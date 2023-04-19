@@ -9,7 +9,7 @@ const ButtonContainer = styled.div`
 `;
 
 const StyledButton = styled.button`
-  background-color: #4caf50;
+  background-color: #4c6daf;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -19,7 +19,7 @@ const StyledButton = styled.button`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: #3e8e41;
+    background-color: #3e5b8e;
   }
 `;
 
@@ -56,24 +56,22 @@ function DegreeFacts() {
   const displayFacts = () => {
     return (
       <div className="container">
-        <div className="main-list degree-all">
-          <ul>
-            {facts.map((elem, index) => (
-              <li key={index}>
-                {elem.full_name}
-                <ButtonContainer>
-                  <br></br>
-  
-                  <StyledButton
-                    onClick={() => handleButtonClick("degree", elem.shortcode)}
-                  >
-                    More info
-                  </StyledButton>
-                </ButtonContainer>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className="main-list degree-all">
+          {facts.map((elem, index) => (
+            <li key={index}>
+              {elem.full_name}
+              <br></br>
+              <br></br>
+              <ButtonContainer>
+                <StyledButton
+                  onClick={() => handleButtonClick("degree", elem.shortcode)}
+                >
+                  More info
+                </StyledButton>
+              </ButtonContainer>
+            </li>
+          ))}
+        </ul>
       </div>
     );
   };
@@ -95,7 +93,7 @@ function DegreeFacts() {
       ) : (
         <>
           <h2>all degrees</h2>
-          <ul>{displayFacts()}</ul>
+          {displayFacts()}
         </>
       )}
     </div>

@@ -24,7 +24,7 @@ function DegreeId({id}){
   const displayCohort = () => {
     return (
       <ul>
-        <div className="mains">
+        <div className="main-list cohort-all">
         {cohort.map(cohort => (
           <li key={cohort.id}>
             <ul>
@@ -45,10 +45,11 @@ function DegreeId({id}){
 
   const displayDegree = () => {
     return (
-      <div className="overall">
+      <div className="main-list degree-all">
       <ul>
-        <li>Full name: {degree.full_name}</li>
-        <li>Shortcode: {degree.shortcode}</li>
+        Full name: {degree.full_name}
+        <br></br>
+        Shortcode: {degree.shortcode}
         <br></br>
         <br></br>
       </ul>

@@ -26,38 +26,44 @@ function StudentId({id}){
 
   const displaymodules = () => {
     return (
-      <ul>
-        {modules.map(module => {
-          const val = /\/([A-Za-z0-9]+)\/$/.exec(module.module);
-          const moduleCode = val ? val[1] : '';
-          return (
-            <li key={module.id}>
-              <ul>
-                Module: {moduleCode}
-                <br></br>
-                CA mark: {module.ca_mark}
-                <br></br>
-                Exam mark: {module.exam_mark}
-                <br></br>
-                Total grade: {module.total_grade}
-                <br></br>
-                <br></br>
-              </ul>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="main-list">
+        <ul>
+          {modules.map(module => {
+            const val = /\/([A-Za-z0-9]+)\/$/.exec(module.module);
+            const moduleCode = val ? val[1] : '';
+            return (
+              <li key={module.id}>
+                <ul>
+                  Module: {moduleCode}
+                  <br></br>
+                  CA mark: {module.ca_mark}
+                  <br></br>
+                  Exam mark: {module.exam_mark}
+                  <br></br>
+                  Total grade: {module.total_grade}
+                  <br></br>
+                  <br></br>
+                </ul>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     );
   };
+  
   
 
   const displaystudent = () => {
     return (
       <ul>
-        <li>ID: {student.student_id}</li>
-        <li>First Name: {student.first_name}</li>
-        <li>Last Name: {student.last_name}</li>
-        <li>Email: {student.email}</li>
+        ID: {student.student_id}
+        <br></br>
+        First Name: {student.first_name}
+        <br></br>
+        Last Name: {student.last_name}
+        <br></br>
+        Email: {student.email}
         <br></br>
         <br></br>
 

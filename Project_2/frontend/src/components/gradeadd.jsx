@@ -112,57 +112,34 @@ function Gradeadd() {
         return (
 
 
-        <div>
-        <h1>Add Grade</h1>
-        <form onSubmit={handleSubmit}>
-        <div>
-        <label htmlFor="module">Module:</label>
-        <select id="module" value={selectedModule} onChange={handleModuleChange}>
-        {modules.map((module) => (
-        <option key={module.code} value={module.code}>
-        {module.code} - {module.full_name}
-        </option>
-        ))}
-        </select>
-        </div>
+          <div>
+            <h1>Add Grade</h1>
+            <form onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="module">Module:</label>
+                <input id="module" type="text" value={selectedModule} onChange={handleModuleChange} />
+              </div>
+              <div>
+                <label htmlFor="ca_mark">CA Mark:</label>
+                <input id="ca_mark" type="text" value={ca_mark} onChange={handleCaChange} />
+              </div>
+              <div>
+                <label htmlFor="exam_mark">Exam Mark:</label>
+                <input id="exam_mark" type="text" value={exam_mark} onChange={handleExammarkChange} />
+              </div>
+              <div>
+                <label htmlFor="cohort">Cohort:</label>
+                <input id="cohort" type="text" value={selectedCohort} onChange={handleCohortChange} />
+              </div>
+              <div>
+                <label htmlFor="student">Student:</label>
+                <input id="student" type="text" value={selectedStudent} onChange={handleStudentgradeChange} />
+              </div>
+              <button type="submit">Add Grade</button>
+            </form>
+          </div>
 
-
-        <div>
-        <label htmlFor="ca_mark">CA Mark:</label>
-        <input id="ca_mark" type="text" value={ca_mark} onChange={handleCaChange} />
-        </div>
-        <div>
-        <label htmlFor="exam_mark">Exam Mark:</label>
-        <input id="exam_mark" type="text" value={exam_mark} onChange={handleExammarkChange} />
-        </div>
-
-
-        <div>
-        <label htmlFor="cohort">Cohort:</label>
-        <select id="cohort" value={selectedCohort} onChange={handleCohortChange}>
-        {cohorts.map((cohort) => (
-        <option key={cohort.id} value={cohort.id}>
-        {cohort.id}
-        </option>
-        ))}
-        </select>
-        </div>
-
-
-        <div>
-        <label htmlFor="student">Student:</label>
-        <select id="student" value={selectedStudent} onChange={handleStudentgradeChange}>
-        {students.map((student) => (
-        <option key={student.id} value={student.id}>
-        {student.first_name} {student.last_name}
-        </option>
-        ))}
-        </select>
-        </div>
-        <button type="submit">Add Grade</button>
-        </form>
-        </div>
-        );
-        }
+        )
+      } 
         
         export default Gradeadd;

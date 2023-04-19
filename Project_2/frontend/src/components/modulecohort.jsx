@@ -1,7 +1,26 @@
-
-
 import { useState, useEffect } from "react";
-import React from 'react';
+import styled from "styled-components";
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+`;
+
+const StyledButton = styled.button`
+  background-color: #4c6daf;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #3e5b8e;
+  }
+`;
 
 function ModulecohortId({ id, onBack }) {
   const [degree, setdegree] = useState({});
@@ -26,18 +45,16 @@ function ModulecohortId({ id, onBack }) {
 
   const displaycourse = () => {
     return (
-      <ul>
+      <ul className="main-list degree-cohort">
         {course.map((course) => (
           <li key={course.id}>
-            <ul>
-              Course Code: {course.code}
-              <br></br>
-              Course Name: {course.full_name}
-              <br></br>
-              CA Split: {course.ca_split}
-              <br></br>
-              <br></br>
-            </ul>
+            Course Code: {course.code}
+            <br></br>
+            Course Name: {course.full_name}
+            <br></br>
+            CA Split: {course.ca_split}
+            <br></br>
+            <br></br>
           </li>
         ))}
       </ul>
@@ -47,9 +64,11 @@ function ModulecohortId({ id, onBack }) {
   const displayDegree = () => {
     return (
       <ul>
-        <li>ID: {degree.id}</li>
-        <li>Year: {degree.year}</li>
-        <li>Name: {degree.name}</li>
+        ID: {degree.id}
+        <br></br>
+        Year: {degree.year}
+        <br></br>
+        Name: {degree.name}
         <br></br>
         <br></br>
       </ul>
@@ -71,7 +90,9 @@ function ModulecohortId({ id, onBack }) {
       {displayDegree()}
       <h3>Cohort for {id}</h3>
       {displaycourse()}
-      <button onClick={handleBackClick}>Back</button>
+      <ButtonContainer>
+        <StyledButton onClick={handleBackClick}>Back</StyledButton>
+      </ButtonContainer>
     </div>
   );
 }

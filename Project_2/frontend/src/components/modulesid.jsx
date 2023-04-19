@@ -19,7 +19,7 @@ function ModuleId({id}){
     }
     return (
       <ul>
-        <li>
+        
 
           <br></br>
           Course Name: {module.full_name}
@@ -29,7 +29,7 @@ function ModuleId({id}){
           CA split :{module.ca_split}
           <br></br>
           <br></br>
-        </li>
+        
       </ul>
     );
   };

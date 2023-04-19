@@ -9,7 +9,7 @@ const ButtonContainer = styled.div`
 `;
 
 const StyledButton = styled.button`
-  background-color: #4caf50;
+  background-color: #4c6daf;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -19,7 +19,7 @@ const StyledButton = styled.button`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: #3e8e41;
+    background-color: #3e5b8e;
   }
 `;
 
@@ -72,7 +72,7 @@ function ModulesFacts(){
                     onClick={() => handleButtonClick("cohort", module.code)}
 
                   >
-                    Display
+                    More info
                   </StyledButton>
                 </ButtonContainer>
           </div>
